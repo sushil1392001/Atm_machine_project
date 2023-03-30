@@ -6,6 +6,7 @@ root=Tk()
 root.geometry("1600x1000")
 root.title("ATM Machine")
 
+#connet the data base
 import pymysql as my
 conn=my.connect(
     host='localhost',
@@ -14,7 +15,7 @@ conn=my.connect(
     database='atm_machine')
 mysql=conn.cursor()
 
-image1=Image.open('C:\\Users\\Dell\\OneDrive\\Pictures\\Saved Pictures\\17520.jpg')
+image1=Image.open('C:\\Users\\Dell\\pitcher.jpg')
 Photo=ImageTk.PhotoImage(image1)
 label1=Label(root,image=Photo)
 label1.pack()
@@ -38,8 +39,8 @@ def send_otp():
     try:
         otp=random.randint(1000,99999)
 
-        email_sender="devil1392001@gmail.com"
-        email_pass="iziwccaoqigbsbnn"
+        email_sender="your email"
+        email_pass="email_password"
 
         email_rev="select Email from atm_card where Card_number=%s"
         t=(Card_number.get())
